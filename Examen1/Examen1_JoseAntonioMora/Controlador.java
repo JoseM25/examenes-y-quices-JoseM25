@@ -13,14 +13,12 @@ public class Controlador{
     private final String MENSAJE = "Escoja una opción";
     private final String[] OPCIONES = {"Salir", "Distribuir Computadoras en laboratorio", "Creditos"}; 
     private Interfaz interfaz;
-    private Arbitro arbitro;
-    private Tablero tablero;
+    private Aula aula;
 
     public Controlador(){
 
         interfaz= new Interfaz("Bienvenido", "Computadora.png");
-        tablero= new Tablero();
-        arbitro= new Arbitro(interfaz,tablero); 
+        aula= new Aula(interfaz); 
 
     }
 
@@ -32,17 +30,12 @@ public class Controlador{
             switch (opcion) {
 
                 case 1: 
-                arbitro.distribuirComputadoras();
+                aula.distribuirComputadoras();
                 break;
 
                 case 2:
-                arbitro.mostrarCreditos();
+                aula.mostrarCreditos();
                 break;
-
-                case 3:
-                arbitro.ayudar();
-                break;
-
             }
         }while(opcion > 0);
     }

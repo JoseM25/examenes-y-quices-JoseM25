@@ -9,13 +9,15 @@ public class Aula
 {
     // instance variables - replace the example below with your own
     private Computadora aula[][];
-
+    private Interfaz interfaz;
     /**
      * Constructor for objects of class Aula
      */
-    public Aula()
+    public Aula(Interfaz laInterfaz)
     {
-        interfaz.showMessageDialog
+        interfaz=laInterfaz;
+        int fila=interfaz.pedirNumero("Digite las filas del aula");
+        int columna=interfaz.pedirNumero("Digite las columnas del aula");
         aula=new Computadora[fila][columna];
     }
 
@@ -25,9 +27,41 @@ public class Aula
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void distribuirComputadoras()
     {
-        // put your code here
-        return x + y;
+        int cantidadComputadoras=interfaz.pedirNumero("Digite el numero de computadoras que desea colocar");
+        int contador=1;
+        for (int fila=0; fila<aula.length;fila+=2){
+            for(int columna=0;columna<aula[0].length;columna+=2){
+                Computadora miComputadora=new Computadora();
+                int ancho=miComputadora.getAncho();
+                if(ancho==1){
+                    miComputadora.setPosicion(contador);
+                    aula[fila][columna]=miComputadora;
+                    contador++;
+                }else if(ancho==2){
+                    miComputadora.setPosicion(contador);
+                    aula[fila][columna]=miComputadora;
+                    aula[fila+1][columna+1]=miComputadora;
+                    contador++;
+                }
+            }
+        }
+    }
+    
+    public String toString(){
+        String muestraAula="";
+        for (int fila=0; fila<aula.length; fila++){
+                for (int columna=0; columna<aula[0].length; columna++){
+                muestraAula += " " + aula[fila][columna].getPosicion();
+                }
+                muestraAula= muestraAula+ " " + "\n";
+        }
+        return muestraAula;
+    }
+    
+    public void mostrarCreditos()
+    {
+        interfaz.decirMensaje("Jose Antonio Mora M"+"\n"+"C15114");
     }
 }

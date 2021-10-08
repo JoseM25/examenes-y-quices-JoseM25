@@ -11,6 +11,7 @@ public class Computadora
     // instance variables - replace the example below with your own
     private Random generador;
     private int ancho;
+    private int posicionComputadora;
     /**
      * Constructor for objects of class Computadora
      */
@@ -20,6 +21,7 @@ public class Computadora
         generador=new Random();
         
         ancho=generador.nextInt(2)+1;
+        posicionComputadora=0;
     }
 
     /**
@@ -32,5 +34,12 @@ public class Computadora
     {
         // put your code here
         return ancho;
+    }
+    
+    public int getPosicionComputadora
+    
+    public void setPosicion(int posicionUsuario)
+    {
+        posicionComputadora=posicionUsuario;
     }
 }
