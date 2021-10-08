@@ -27,10 +27,11 @@ public class Aula
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void distribuirComputadoras()
+    public boolean distribuirComputadoras()
     {
         int cantidadComputadoras=interfaz.pedirNumero("Digite el numero de computadoras que desea colocar");
         int contador=1;
+        boolean continuar=true;
 
         for (int fila=0; fila<aula.length; fila++){
             for (int columna=0; columna<aula[0].length; columna+=2){
@@ -44,7 +45,7 @@ public class Aula
                     miComputadora.setPosicion(contador);
                     aula[fila][columna]=miComputadora;
                     aula[fila][columna+1]=miComputadora;
-                    aula[fila][columna+2]=null;
+                    columna+=1;
                     contador++;
                 }else if(ancho==2 && contador<=cantidadComputadoras && columna>=aula.length-2){
                     
@@ -53,6 +54,13 @@ public class Aula
                 }
             }
         }
+
+        if(contador<=cantidadComputadoras){
+            continuar=false;
+        }else{
+            continuar=true;
+        }
+        return continuar;
     }
 
     public String toString(){
