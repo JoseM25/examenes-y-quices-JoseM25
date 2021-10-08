@@ -31,20 +31,23 @@ public class Aula
     {
         int cantidadComputadoras=interfaz.pedirNumero("Digite el numero de computadoras que desea colocar");
         int contador=1;
-        
+
         for (int fila=0; fila<aula.length; fila++){
-            for (int columna=0; columna<aula[0].length; columna++){
+            for (int columna=0; columna<aula[0].length; columna+=2){
                 Computadora miComputadora=new Computadora();
                 int ancho=miComputadora.getAncho();
                 if(ancho==1 && contador<=cantidadComputadoras){
                     miComputadora.setPosicion(contador);
                     aula[fila][columna]=miComputadora;
-                    contador+=2;
-                }else if(ancho==2 && contador<=cantidadComputadoras){
+                    contador++;
+                }else if(ancho==2 && contador<=cantidadComputadoras && columna<=aula.length-2){
                     miComputadora.setPosicion(contador);
                     aula[fila][columna]=miComputadora;
                     aula[fila][columna+1]=miComputadora;
-                    contador+=2;
+                    aula[fila][columna+2]=null;
+                    contador++;
+                }else if(ancho==2 && contador<=cantidadComputadoras && columna>=aula.length-2){
+                    
                 }else{
                     aula[fila][columna]=null;
                 }
@@ -65,6 +68,11 @@ public class Aula
             muestraAula= muestraAula+ " " + "\n";
         }
         return muestraAula;
+    }
+
+    public void mostrarAula(){
+        String mostrarAula=this.toString();
+        //interfaz.decirMensaje(null,mostrarTablero+"\n"+
     }
 
     public void mostrarCreditos()
