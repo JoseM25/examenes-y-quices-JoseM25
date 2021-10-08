@@ -36,7 +36,10 @@ public class Computadora
         return ancho;
     }
     
-    public int getPosicionComputadora
+    public int getPosicion()
+    {
+        return posicionComputadora;
+    }
     
     public void setPosicion(int posicionUsuario)
     {

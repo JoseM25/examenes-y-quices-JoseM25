@@ -31,6 +31,8 @@ public class Controlador{
 
                 case 1: 
                 aula.distribuirComputadoras();
+                String matriz=aula.toString();
+                interfaz.decirMensaje(matriz);
                 break;
 
                 case 2:

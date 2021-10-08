@@ -31,35 +31,41 @@ public class Aula
     {
         int cantidadComputadoras=interfaz.pedirNumero("Digite el numero de computadoras que desea colocar");
         int contador=1;
-        for (int fila=0; fila<aula.length;fila+=2){
-            for(int columna=0;columna<aula[0].length;columna+=2){
-                Computadora miComputadora=new Computadora();
-                int ancho=miComputadora.getAncho();
-                if(ancho==1){
-                    miComputadora.setPosicion(contador);
-                    aula[fila][columna]=miComputadora;
-                    contador++;
-                }else if(ancho==2){
-                    miComputadora.setPosicion(contador);
-                    aula[fila][columna]=miComputadora;
-                    aula[fila+1][columna+1]=miComputadora;
-                    contador++;
+        while(contador<=cantidadComputadoras){
+            for (int fila=0; fila<aula.length;fila+=2){
+                for(int columna=0;columna<aula[0].length;columna+=2){
+                    Computadora miComputadora=new Computadora();
+                    int ancho=miComputadora.getAncho();
+                    if(ancho==1){
+                        miComputadora.setPosicion(contador);
+                        aula[fila][columna]=miComputadora;
+                        contador++;
+                    }else if(ancho==2){
+                        miComputadora.setPosicion(contador);
+                        aula[fila][columna]=miComputadora;
+                        aula[fila+1][columna+1]=miComputadora;
+                        contador++;
+                    }
                 }
             }
         }
-    }
-    
+    }  
+
     public String toString(){
         String muestraAula="";
         for (int fila=0; fila<aula.length; fila++){
-                for (int columna=0; columna<aula[0].length; columna++){
-                muestraAula += " " + aula[fila][columna].getPosicion();
+            for (int columna=0; columna<aula[0].length; columna++){
+                if(aula[fila][columna]==null){
+                    muestraAula+=" "+"0"; 
+                }else{
+                    muestraAula += " " + aula[fila][columna].getPosicion();   
                 }
-                muestraAula= muestraAula+ " " + "\n";
+            }
+            muestraAula= muestraAula+ " " + "\n";
         }
         return muestraAula;
     }
-    
+
     public void mostrarCreditos()
     {
         interfaz.decirMensaje("Jose Antonio Mora M"+"\n"+"C15114");
