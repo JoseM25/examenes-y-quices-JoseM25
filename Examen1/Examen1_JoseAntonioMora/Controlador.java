@@ -30,9 +30,15 @@ public class Controlador{
             switch (opcion) {
 
                 case 1: 
-                aula.distribuirComputadoras();
+                boolean cupieron=aula.distribuirComputadoras();
                 String matriz=aula.toString();
-                interfaz.decirMensaje(matriz);
+                String cupieronTodas="";
+                if (cupieron==true){
+                    cupieronTodas="Las computadoras si cupieron en el aula";
+                }else{
+                     cupieronTodas="Las computadoras NO cupieron en el aula";
+                }
+                interfaz.showMessageDialog(null,matriz+"\n"+cupieronTodas);
                 break;
 
                 case 2:

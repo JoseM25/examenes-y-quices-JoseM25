@@ -48,7 +48,7 @@ public class Aula
                     columna+=1;
                     contador++;
                 }else if(ancho==2 && contador<=cantidadComputadoras && columna>=aula.length-2){
-                    
+                    columna+=1;
                 }else{
                     aula[fila][columna]=null;
                 }
@@ -76,11 +76,6 @@ public class Aula
             muestraAula= muestraAula+ " " + "\n";
         }
         return muestraAula;
-    }
-
-    public void mostrarAula(){
-        String mostrarAula=this.toString();
-        //interfaz.decirMensaje(null,mostrarTablero+"\n"+
     }
 
     public void mostrarCreditos()
