@@ -36,9 +36,9 @@ public class Nodo
         return siguientes;
     }
     
-    public void setSiguiente(ArrayList<Nodo> unSiguiente)
+    public void setSiguiente(Nodo unSiguiente)
     {
-        siguientes=unSiguiente;
+        siguientes.add(unSiguiente);
     }
     
     public String toString()

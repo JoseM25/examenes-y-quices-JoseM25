@@ -7,7 +7,7 @@ public class Controlador{
     private Interfaz interfaz;
     private Lista lista;
     public Controlador(){
-        interfaz= new Interfaz("Bienvenido", "Kanye.JPG");
+        interfaz= new Interfaz("Bienvenido", "Maquina.PNG");
         lista=new Lista();
     }
 
@@ -27,37 +27,37 @@ public class Controlador{
                 case 2: 
                     int val=interfaz.pedirNumero("Digite el valor");
                     String id=interfaz.pedirHilera("Digite el identificador");
-                    Elemento unElemento=new Elemento(val,id);  
-                    lista.agregarFinal(unElemento);
+                    Maquina unaMaquina=new Maquina(val,id);  
+                    lista.agregarFinal(unaMaquina);
                     break;
 
                 case 3:   
                     int valInicial=interfaz.pedirNumero("Digite el valor");
                     String idInicial=interfaz.pedirHilera("Digite el identificador");
-                    Elemento unElementoInicial=new Elemento(valInicial,idInicial);  
-                    lista.agregarInicio(unElementoInicial);
+                    Maquina unaMaquinaInicial=new Maquina(valInicial,idInicial);  
+                    lista.agregarInicio(unaMaquinaInicial);
                     break;
                 
                 case 4:
-                    int contador=lista.contar();
+                    // int contador=lista.contar();
                     String contadorString=Integer.toString(contador);
                     interfaz.decirMensaje(contadorString);
                     break;
 
                 case 5:
                     String identif=interfaz.pedirHilera("Digite el identificador");
-                    boolean confirmador=lista.eliminar(identif);
+                    // boolean confirmador=lista.eliminar(identif);
                     String eliminar=Boolean.toString(confirmador);
                     interfaz.decirMensaje(eliminar);
                     break;
 
                 case 6:
                     String iden=interfaz.pedirHilera("Digite el identificador que desea buscar");
-                    Elemento elemento=lista.buscarElemento(iden);
-                    if(elemento.getIdentificador().equals("cero") && elemento.getValor()==0){
+                    // Maquina maquina=lista.buscarMaquina(iden);
+                    if(maquina.getIdentificador().equals("cero") && maquina.getValor()==0){
                         interfaz.decirMensaje("El elemento no esta en la lista");
                     }else{
-                        String buscar=elemento.toString();
+                        String buscar=maquina.toString();
                         interfaz.decirMensaje(buscar);
                     }
                     break;

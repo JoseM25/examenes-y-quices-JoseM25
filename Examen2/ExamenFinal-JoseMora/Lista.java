@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class Lista here.
@@ -43,120 +44,122 @@ public class Lista
 
     public void agregarFinal(Maquina unaMaquina){
         Nodo nodoNuevo=new Nodo(unaMaquina);
+        ArrayList<Nodo>auxiliar2=new ArrayList<Nodo>();
         if(this.estarVacia()==true){
             primero=nodoNuevo;
         }else{
             Nodo nodoAuxiliar=primero;
+            int indice=0;
             while(nodoAuxiliar.getSiguiente()!=null){
-                nodoAuxiliar=nodoAuxiliar.getSiguiente();
+                nodoAuxiliar=nodoAuxiliar.getSiguiente().get(indice);
+                indice++;
             }
             nodoAuxiliar.setSiguiente(nodoNuevo);
         }
     }
-    
-    public void agregarInicio(Maquina unaMaquina){
-        Nodo nodoNuevo=new Nodo(unaMaquina);
-        if(this.estarVacia()==true){
-            primero=nodoNuevo;
-        }else{
-            Nodo auxiliar=primero;
-            primero=nodoNuevo;
-            nodoNuevo.setSiguiente(auxiliar);
-        }
-    }
 
-    public int contar(){
-        int contador=0;
-        if(primero!=null){
-            Nodo nodoAuxiliar=primero;
-            contador=contador+1;
-            while(nodoAuxiliar.getSiguiente()!=null){
-                contador++;
-                nodoAuxiliar=nodoAuxiliar.getSiguiente();
-            }
-        }else{
-            contador=0;
-        }
-        return contador;
-    }
+    // public void agregarInicio(Maquina unaMaquina){
+        // Nodo nodoNuevo=new Nodo(unaMaquina);
+        // if(this.estarVacia()==true){
+            // primero=nodoNuevo;
+        // }else{
+            // Nodo auxiliar=primero;
+            // primero=nodoNuevo;
+            // nodoNuevo.setSiguiente(auxiliar);
+        // }
+    // }
 
-    public Maquina buscarMaquina(String idBuscado){
-        Nodo auxiliar=primero;
-        boolean encontrado=false;
-        Maquina elemento;
-        if(this.estarVacia()==true){
-            encontrado=false;
-        }else{
-            while(auxiliar.getSiguiente()!=null && encontrado==false)
-            {
-                if(auxiliar.getElemento().getIdentificador().equals(idBuscado)){
-                    encontrado=true;
-                }else{
-                    auxiliar=auxiliar.getSiguiente();
-                }  
-            }
+    // public int contar(){
+        // int contador=0;
+        // if(primero!=null){
+            // Nodo nodoAuxiliar=primero;
+            // contador=contador+1;
+            // while(nodoAuxiliar.getSiguiente()!=null){
+                // contador++;
+                // nodoAuxiliar=nodoAuxiliar.getSiguiente();
+            // }
+        // }else{
+            // contador=0;
+        // }
+        // return contador;
+    // }
 
-            if(auxiliar.getElemento().getIdentificador().equals(idBuscado)){
-                encontrado=true;
-            }else{
-                encontrado=false;
-            }
-        }
+    // public Maquina buscarMaquina(String idBuscado){
+        // Nodo auxiliar=primero;
+        // boolean encontrado=false;
+        // Maquina elemento;
+        // if(this.estarVacia()==true){
+            // encontrado=false;
+        // }else{
+            // while(auxiliar.getSiguiente()!=null && encontrado==false)
+            // {
+                // if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
+                    // encontrado=true;
+                // }else{
+                    // auxiliar=auxiliar.getSiguiente();
+                // }  
+            // }
 
-        if(encontrado==false){
-            elemento=new Maquina(0,"cero");
-        }else{
-            elemento=auxiliar.getElemento();
-        }
-        return elemento;
-    }
+            // if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
+                // encontrado=true;
+            // }else{
+                // encontrado=false;
+            // }
+        // }
 
-    public boolean eliminar(String nombreBorrar)    {       
-        boolean confirmador=false;  
-        Nodo auxiliar=primero;  
-        if(this.estarVacia()==true){           
-            confirmador=false;        
-        }else if(auxiliar.getElemento().getIdentificador().equals(nombreBorrar)){
-            primero=primero.getSiguiente();
-            confirmador=true;
-        }else{
-            while((auxiliar.getSiguiente()!=null)&&(confirmador==false)){
-                if((auxiliar.getSiguiente().getSiguiente()!=null)&&(auxiliar.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar))){            
-                    auxiliar.setSiguiente(auxiliar.getSiguiente().getSiguiente());
-                    confirmador=true;        
-                }else{  
-                    auxiliar=auxiliar.getSiguiente();
-                }   
-            }
-        }
-        
-        if(confirmador==false){
-            Nodo auxiliarFinal=primero;
-            while(auxiliarFinal.getSiguiente().getSiguiente()!=null){
-                auxiliarFinal=auxiliarFinal.getSiguiente();
-            }
-            if(auxiliarFinal.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar)){
-                auxiliarFinal.setSiguiente(null);
-                confirmador=true;
-            }
-        }
-        return confirmador;   
-    }
+        // if(encontrado==false){
+            // elemento=new Maquina(0,"cero");
+        // }else{
+            // maquina=auxiliar.getMaquina();
+        // }
+        // return maquina;
+    // }
 
-    public String toString(){
-        String stringFinal="";
-        Nodo auxiliar=primero;
-        if(this.estarVacia()==true){
-            stringFinal="No hay nada en la lista";
-        }else{
-            while(auxiliar.getSiguiente()!=null){
-                stringFinal=stringFinal+"\n"+auxiliar.getElemento().getIdentificador();
-                stringFinal=stringFinal+" "+auxiliar.getElemento().getValor();
-                auxiliar=auxiliar.getSiguiente();
-            }
-            stringFinal=stringFinal+"\n"+auxiliar.getElemento().getIdentificador();
-            stringFinal=stringFinal+" "+auxiliar.getElemento().getValor();
-        }
-        return stringFinal;
-    }
+    // public boolean eliminar(String nombreBorrar)    {       
+        // boolean confirmador=false;  
+        // Nodo auxiliar=primero;  
+        // if(this.estarVacia()==true){           
+            // confirmador=false;        
+        // }else if(auxiliar.getElemento().getIdentificador().equals(nombreBorrar)){
+            // primero=primero.getSiguiente();
+            // confirmador=true;
+        // }else
+            // while((auxiliar.getSiguiente()!=null)&&(confirmador==false)){
+                // if((auxiliar.getSiguiente().getSiguiente()!=null)&&(auxiliar.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar))){            
+                // auxiliar.setSiguiente(auxiliar.getSiguiente().getSiguiente());
+                // confirmador=true;        
+            // }else{  
+                // auxiliar=auxiliar.getSiguiente();
+            // }   
+        // }
+
+        // if(confirmador==false){
+            // Nodo auxiliarFinal=primero;
+            // while(auxiliarFinal.getSiguiente().getSiguiente()!=null){
+                // auxiliarFinal=auxiliarFinal.getSiguiente();
+            // }
+            // if(auxiliarFinal.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar)){
+                // auxiliarFinal.setSiguiente(null);
+                // confirmador=true;
+            // }
+        // }
+        // return confirmador;   
+    // }
+
+    // public String toString(){
+        // String stringFinal="";
+        // Nodo auxiliar=primero;
+        // if(this.estarVacia()==true){
+            // stringFinal="No hay nada en la lista";
+        // }else{
+            // while(auxiliar.getSiguiente()!=null){
+                // stringFinal=stringFinal+"\n"+auxiliar.getElemento().getIdentificador();
+                // stringFinal=stringFinal+" "+auxiliar.getElemento().getValor();
+                // auxiliar=auxiliar.getSiguiente();
+            // }
+            // stringFinal=stringFinal+"\n"+auxiliar.getElemento().getIdentificador();
+            // stringFinal=stringFinal+" "+auxiliar.getElemento().getValor();
+        // }
+        // return stringFinal;
+    // }
 }
