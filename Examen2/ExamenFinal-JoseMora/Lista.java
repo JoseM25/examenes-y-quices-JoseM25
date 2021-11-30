@@ -51,18 +51,19 @@ public class Lista
             nodoAuxiliar.setSiguiente(nodoNuevo);            
         }else{
             int indice=0;
-            while(nodoAuxiliar.getSiguiente().size()!=indice-1){
+            while(nodoAuxiliar.getSiguiente().size()==indice+1){
+                nodoAuxiliar.getSiguiente().get(indice);
+                nodoAuxiliar.setSiguiente(nodoNuevo);
                 nodoAuxiliar=nodoAuxiliar.getSiguiente().get(indice);
                 indice++;
             }
-            nodoAuxiliar.setSiguiente(nodoNuevo);
         }
     }
 
     // public Maquina buscarMaquina(String idBuscado){
         // Nodo auxiliar=primero;
         // boolean encontrado=false;
-        // Maquina elemento;
+        // Maquina maquina;
         // if(this.estarVacia()==true){
             // encontrado=false;
         // }else{
