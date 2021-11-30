@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * Write a description of class Nodo here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ *
+ * @Jose Antonio Mora
+ * @C15114
  */
 public class Nodo
 {

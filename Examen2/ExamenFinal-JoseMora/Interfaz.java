@@ -2,10 +2,10 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
 /**
- * Write a description of class Interfaz here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ *
+ * @Jose Antonio Mora
+ * @C15114
  */
 public class Interfaz extends JOptionPane
 {

@@ -1,9 +1,14 @@
-
+/**
+ *
+ *
+ * @Jose Antonio Mora
+ * @C15114
+ */
 public class Controlador{
     private final String TITULO_VENTANAS = " ";
     private final String NOMBRE_ARCHIVO_IMAGEN = " ";
     private final String MENSAJE = "Escoja una opción";
-    private final String[] OPCIONES = {"Salir", "Verificar vacia", "Agregar final","Agregar Inicio", "Contar", "Eliminar","Buscar","Imprimir"}; 
+    private final String[] OPCIONES = {"Salir", "Verificar vacia", "Agregar final","Buscar","Imprimir"}; 
     private Interfaz interfaz;
     private Lista lista;
     public Controlador(){
@@ -31,37 +36,17 @@ public class Controlador{
                     lista.agregarFinal(unaMaquina);
                     break;
 
-                // case 3:   
-                    // int valInicial=interfaz.pedirNumero("Digite el valor");
-                    // String idInicial=interfaz.pedirHilera("Digite el identificador");
-                    // Maquina unaMaquinaInicial=new Maquina(valInicial,idInicial);  
-                    // lista.agregarInicio(unaMaquinaInicial);
-                    // break;
-                
-                // case 4:
-                    // // int contador=lista.contar();
-                    // String contadorString=Integer.toString(contador);
-                    // interfaz.decirMensaje(contadorString);
-                    // break;
-
-                // case 5:
-                    // String identif=interfaz.pedirHilera("Digite el identificador");
-                    // // boolean confirmador=lista.eliminar(identif);
-                    // String eliminar=Boolean.toString(confirmador);
-                    // interfaz.decirMensaje(eliminar);
-                    // break;
-
-                // case 6:
-                    // String iden=interfaz.pedirHilera("Digite el identificador que desea buscar");
-                    // // Maquina maquina=lista.buscarMaquina(iden);
-                    // if(maquina.getIdentificador().equals("cero") && maquina.getValor()==0){
-                        // interfaz.decirMensaje("El elemento no esta en la lista");
-                    // }else{
-                        // String buscar=maquina.toString();
-                        // interfaz.decirMensaje(buscar);
-                    // }
-                    // break;
-
+                case 6:
+                    String iden=interfaz.pedirHilera("Digite el identificador que desea buscar");
+                     Maquina maquina=lista.buscarMaquina(iden);
+                    if(maquina.getIdentificador().equals("cero") && maquina.getValor()==0){
+                        interfaz.decirMensaje("El elemento no esta en la lista");
+                    }else{
+                        String buscar=maquina.toString();
+                        interfaz.decirMensaje(buscar);
+                    }
+                    break;
+    
                 case 7:
                     String imprimir=lista.toString();
                     interfaz.decirMensaje(imprimir);

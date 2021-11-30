@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Elemento here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ *
+ * @Jose Antonio Mora
+ * @C15114
  */
 public class Maquina
 {

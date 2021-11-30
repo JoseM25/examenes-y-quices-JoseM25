@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * Write a description of class Lista here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ *
+ * @Jose Antonio Mora
+ * @C15114
  */
 public class Lista
 {
@@ -47,12 +47,9 @@ public class Lista
         Nodo nodoAuxiliar=primero;
         if(this.estarVacia()==true){
             primero=nodoNuevo;
-        }else if(nodoAuxiliar.getSiguiente().size()==0){
-            nodoAuxiliar.setSiguiente(nodoNuevo);            
         }else{
             int indice=0;
-            while(nodoAuxiliar.getSiguiente().size()==indice+1){
-                nodoAuxiliar.getSiguiente().get(indice);
+            while(nodoAuxiliar.getSiguiente().get(indice)!=null){
                 nodoAuxiliar.setSiguiente(nodoNuevo);
                 nodoAuxiliar=nodoAuxiliar.getSiguiente().get(indice);
                 indice++;
@@ -60,67 +57,44 @@ public class Lista
         }
     }
 
-    // public Maquina buscarMaquina(String idBuscado){
-        // Nodo auxiliar=primero;
-        // boolean encontrado=false;
-        // Maquina maquina;
-        // if(this.estarVacia()==true){
-            // encontrado=false;
-        // }else{
-            // while(auxiliar.getSiguiente()!=null && encontrado==false)
-            // {
-                // if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
-                    // encontrado=true;
-                // }else{
-                    // auxiliar=auxiliar.getSiguiente();
-                // }  
-            // }
+    public Maquina buscarMaquina(String idBuscado){
+        Nodo auxiliar=primero;
+        boolean encontrado=false;
+        Maquina maquina;
+        if(this.estarVacia()==true){
+            encontrado=false;
+        }else{
+            int indice=0;
+            while(auxiliar.getSiguiente().get(indice)!=null && encontrado==false)
+            {
+                if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
+                    encontrado=true;
+                }else{
+                    auxiliar=auxiliar.getSiguiente().get(indice);
+                }  
+            }
 
-            // if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
-                // encontrado=true;
-            // }else{
-                // encontrado=false;
-            // }
-        // }
+            if(auxiliar.getMaquina().getIdentificador().equals(idBuscado)){
+                encontrado=true;
+            }else{
+                encontrado=false;
+            }
+        }
 
-        // if(encontrado==false){
-            // elemento=new Maquina(0,"cero");
-        // }else{
-            // maquina=auxiliar.getMaquina();
-        // }
-        // return maquina;
-    // }
+        if(encontrado==false){
+            maquina=new Maquina(0,"cero");
+        }else{
+            maquina=auxiliar.getMaquina();
+        }
+        return maquina;
+    }
+    
+    public int costosRecursivos(){
+        
+        
+        
+    }
 
-    // public boolean eliminar(String nombreBorrar)    {       
-        // boolean confirmador=false;  
-        // Nodo auxiliar=primero;  
-        // if(this.estarVacia()==true){           
-            // confirmador=false;        
-        // }else if(auxiliar.getElemento().getIdentificador().equals(nombreBorrar)){
-            // primero=primero.getSiguiente();
-            // confirmador=true;
-        // }else
-            // while((auxiliar.getSiguiente()!=null)&&(confirmador==false)){
-                // if((auxiliar.getSiguiente().getSiguiente()!=null)&&(auxiliar.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar))){            
-                // auxiliar.setSiguiente(auxiliar.getSiguiente().getSiguiente());
-                // confirmador=true;        
-            // }else{  
-                // auxiliar=auxiliar.getSiguiente();
-            // }   
-        // }
-
-        // if(confirmador==false){
-            // Nodo auxiliarFinal=primero;
-            // while(auxiliarFinal.getSiguiente().getSiguiente()!=null){
-                // auxiliarFinal=auxiliarFinal.getSiguiente();
-            // }
-            // if(auxiliarFinal.getSiguiente().getElemento().getIdentificador().equals(nombreBorrar)){
-                // auxiliarFinal.setSiguiente(null);
-                // confirmador=true;
-            // }
-        // }
-        // return confirmador;   
-    // }
     
     public String toString(){
         String stringFinal="";
