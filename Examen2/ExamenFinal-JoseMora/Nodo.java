@@ -10,7 +10,7 @@ public class Nodo
 {
     // instance variables - replace the example below with your own
     private Maquina maquina;
-    private ArrayList<Nodo> siguientes;
+    private ArrayList<Nodo> siguientes=new ArrayList<Nodo>();
 
     /**
      * Constructor for objects of class Nodo
@@ -18,10 +18,9 @@ public class Nodo
     public Nodo(Maquina laMaquinaRecibida)
     {
         maquina=laMaquinaRecibida;
-        new ArrayList<Nodo>();
     }
     
-    public Maquina getElemento()
+    public Maquina getMaquina()
     {
         return maquina;
     }
