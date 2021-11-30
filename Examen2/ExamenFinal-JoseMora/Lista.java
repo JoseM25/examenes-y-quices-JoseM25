@@ -102,9 +102,13 @@ public class Lista
         if(auxiliar.getSiguiente().get(indice)==null){
             
         }else{
-            auxiliar=auxiliar.
+            if(auxiliar.getSiguiente().get(indice).getMaquina().getValor()>200){
+                valorTotal=this.costosRecursivos();
+            }else{
+                auxiliar=auxiliar.getSiguiente().get(indice);
+            }
         }
-        
+        return valorTotal;
     }
 
     public String toString(){

@@ -8,7 +8,7 @@ public class Controlador{
     private final String TITULO_VENTANAS = " ";
     private final String NOMBRE_ARCHIVO_IMAGEN = " ";
     private final String MENSAJE = "Escoja una opción";
-    private final String[] OPCIONES = {"Salir", "Verificar vacia", "Agregar final","Buscar","Imprimir"}; 
+    private final String[] OPCIONES = {"Salir", "Verificar vacia", "Agregar final","Buscar","Imprimir","Valor Maquinas"}; 
     private Interfaz interfaz;
     private Lista lista;
     public Controlador(){
@@ -46,6 +46,11 @@ public class Controlador{
                     String imprimir=lista.toString();
                     interfaz.decirMensaje(imprimir);
                     break;
+                
+                case 8:
+                    int valorMaquinas=lista.costosRecursivos();
+                    //String valor=valorMaquinas.toString();
+                    //interfaz.decirMensaje(valor);
             }
         }while(opcion > 0);
     }
