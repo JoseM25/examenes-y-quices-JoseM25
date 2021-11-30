@@ -44,14 +44,16 @@ public class Lista
 
     public void agregarFinal(Maquina unaMaquina){
         Nodo nodoNuevo=new Nodo(unaMaquina);
+        Nodo nodoAuxiliar=primero;
         if(this.estarVacia()==true){
             primero=nodoNuevo;
+        }else if(nodoAuxiliar.getSiguiente().size()==0){
+            nodoAuxiliar.setSiguiente(nodoNuevo);            
         }else{
-            Nodo nodoAuxiliar=primero;
             int indice=0;
-            while(nodoAuxiliar.getSiguiente().size()!=indice){
-                indice++;
+            while(nodoAuxiliar.getSiguiente().size()!=indice-1){
                 nodoAuxiliar=nodoAuxiliar.getSiguiente().get(indice);
+                indice++;
             }
             nodoAuxiliar.setSiguiente(nodoNuevo);
         }
@@ -126,11 +128,11 @@ public class Lista
         if(this.estarVacia()==true){
             stringFinal="No hay nada en la lista";
         }else{
-            while(auxiliar.getSiguiente().size()!=indice){
+            while(auxiliar.getSiguiente().size()!=indice-1){
                 stringFinal=stringFinal+"\n"+auxiliar.getMaquina().getIdentificador();
                 stringFinal=stringFinal+" "+auxiliar.getMaquina().getValor();
-                indice++;
                 auxiliar=auxiliar.getSiguiente().get(indice);
+                indice++;
             }
             stringFinal=stringFinal+"\n"+auxiliar.getMaquina().getIdentificador();
             stringFinal=stringFinal+" "+auxiliar.getMaquina().getValor();
