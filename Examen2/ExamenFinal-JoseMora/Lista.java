@@ -49,7 +49,7 @@ public class Lista
             primero=nodoNuevo;
         }else{
             int indice=0;
-            while(nodoAuxiliar.getSiguiente().get(indice)!=null){
+            while(nodoAuxiliar.getSiguiente().size()!=indice-1){
                 nodoAuxiliar.setSiguiente(nodoNuevo);
                 nodoAuxiliar=nodoAuxiliar.getSiguiente().get(indice);
                 indice++;
@@ -57,12 +57,13 @@ public class Lista
         }
     }
 
-    public Maquina buscarMaquina(String idBuscado){
+    public String buscarMaquina(String idBuscado){
         Nodo auxiliar=primero;
         boolean encontrado=false;
-        Maquina maquina;
+        String maquinasSiguientes="";
         if(this.estarVacia()==true){
             encontrado=false;
+            maquinasSiguientes="No se encuentra en la lista";
         }else{
             int indice=0;
             while(auxiliar.getSiguiente().get(indice)!=null && encontrado==false)
@@ -82,20 +83,30 @@ public class Lista
         }
 
         if(encontrado==false){
-            maquina=new Maquina(0,"cero");
+            maquinasSiguientes="No existe la maquina en la lista";
         }else{
-            maquina=auxiliar.getMaquina();
+            int indice=0;
+            while(auxiliar.getSiguiente().get(indice)!=null){
+                maquinasSiguientes=auxiliar.getSiguiente().get(indice).getMaquina().getIdentificador();
+                maquinasSiguientes=maquinasSiguientes+" "+auxiliar.getSiguiente().get(indice).getMaquina().getValor();
+                auxiliar=auxiliar.getSiguiente().get(indice);
+            }
         }
-        return maquina;
+        return maquinasSiguientes;
     }
-    
+
     public int costosRecursivos(){
-        
-        
+        Nodo auxiliar=primero;
+        int indice=0;
+        int valorTotal=0;
+        if(auxiliar.getSiguiente().get(indice)==null){
+            
+        }else{
+            auxiliar=auxiliar.
+        }
         
     }
 
-    
     public String toString(){
         String stringFinal="";
         Nodo auxiliar=primero;

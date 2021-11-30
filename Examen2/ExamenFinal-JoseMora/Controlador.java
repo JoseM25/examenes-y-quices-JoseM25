@@ -38,13 +38,8 @@ public class Controlador{
 
                 case 6:
                     String iden=interfaz.pedirHilera("Digite el identificador que desea buscar");
-                     Maquina maquina=lista.buscarMaquina(iden);
-                    if(maquina.getIdentificador().equals("cero") && maquina.getValor()==0){
-                        interfaz.decirMensaje("El elemento no esta en la lista");
-                    }else{
-                        String buscar=maquina.toString();
-                        interfaz.decirMensaje(buscar);
-                    }
+                    String maquina=lista.buscarMaquina(iden);
+                    interfaz.decirMensaje(maquina);
                     break;
     
                 case 7:
